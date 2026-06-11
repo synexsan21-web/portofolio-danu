@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Akbar Danu | Portfolio</title>
+<title>Akbar Danu Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
@@ -14,73 +14,165 @@ margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
 }
 
 body{
-background:#0f172a;
+background:#060816;
 color:white;
-line-height:1.7;
+overflow-x:hidden;
 }
 
-header{
-height:100vh;
+body::before{
+content:'';
+position:fixed;
+width:700px;
+height:700px;
+background:#6d28d9;
+filter:blur(180px);
+top:-250px;
+left:-250px;
+opacity:.45;
+z-index:-2;
+animation:float1 10s infinite alternate;
+}
+
+body::after{
+content:'';
+position:fixed;
+width:700px;
+height:700px;
+background:#06b6d4;
+filter:blur(180px);
+bottom:-250px;
+right:-250px;
+opacity:.4;
+z-index:-2;
+animation:float2 12s infinite alternate;
+}
+
+@keyframes float1{
+from{transform:translate(0,0);}
+to{transform:translate(120px,80px);}
+}
+
+@keyframes float2{
+from{transform:translate(0,0);}
+to{transform:translate(-120px,-80px);}
+}
+
+nav{
+position:fixed;
+top:20px;
+left:50%;
+transform:translateX(-50%);
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(15px);
+padding:12px 25px;
+border-radius:50px;
+z-index:999;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin:0 12px;
+font-size:14px;
+}
+
+.hero{
+min-height:100vh;
 display:flex;
-align-items:center;
 justify-content:center;
+align-items:center;
 text-align:center;
 padding:20px;
-background:linear-gradient(135deg,#0f172a,#1e293b);
+}
+
+.hero-content{
+max-width:900px;
+}
+
+.profile{
+width:180px;
+height:180px;
+border-radius:50%;
+margin:auto;
+background:linear-gradient(135deg,#7c3aed,#06b6d4);
+padding:5px;
+box-shadow:0 0 50px rgba(59,130,246,.5);
+}
+
+.profile img{
+width:100%;
+height:100%;
+object-fit:cover;
+border-radius:50%;
+background:#111;
 }
 
 .hero h1{
-font-size:55px;
-margin-bottom:10px;
+font-size:70px;
+font-weight:800;
+margin-top:25px;
 }
 
 .hero h2{
-font-size:22px;
-font-weight:400;
+font-size:24px;
 color:#38bdf8;
-margin-bottom:20px;
+margin-top:10px;
+height:35px;
 }
 
 .hero p{
-max-width:700px;
-margin:auto;
+max-width:750px;
+margin:25px auto;
 color:#cbd5e1;
 }
 
 .btn{
 display:inline-block;
-margin-top:25px;
-padding:12px 28px;
-background:#38bdf8;
-color:#000;
+padding:14px 28px;
+background:linear-gradient(135deg,#7c3aed,#06b6d4);
+color:white;
 text-decoration:none;
-border-radius:30px;
+border-radius:40px;
 font-weight:600;
-transition:.3s;
-}
-
-.btn:hover{
-transform:translateY(-3px);
 }
 
 section{
-padding:80px 10%;
+padding:90px 10%;
 }
 
 .title{
-font-size:35px;
-margin-bottom:30px;
+font-size:40px;
 text-align:center;
-color:#38bdf8;
+margin-bottom:50px;
 }
 
-.about{
-background:#111827;
-border-radius:20px;
+.glass{
+background:rgba(255,255,255,.06);
+backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,.08);
+border-radius:25px;
 padding:30px;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+margin-top:40px;
+}
+
+.stat{
+text-align:center;
+padding:30px;
+}
+
+.stat h3{
+font-size:40px;
+color:#38bdf8;
 }
 
 .skills{
@@ -89,15 +181,13 @@ grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:20px;
 }
 
-.skill-box{
-background:#111827;
+.skill{
 padding:25px;
-border-radius:15px;
+transition:.4s;
 }
 
-.skill-box h3{
-margin-bottom:15px;
-color:#38bdf8;
+.skill:hover{
+transform:translateY(-10px);
 }
 
 .timeline{
@@ -106,54 +196,29 @@ flex-direction:column;
 gap:20px;
 }
 
-.card{
-background:#111827;
+.item{
 padding:25px;
-border-radius:15px;
-border-left:5px solid #38bdf8;
-}
-
-.card h3{
-margin-bottom:5px;
-}
-
-.card span{
-color:#94a3b8;
-font-size:14px;
-}
-
-.portfolio{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
-
-.project{
-background:#111827;
-padding:25px;
-border-radius:15px;
-text-align:center;
+border-left:4px solid #38bdf8;
 }
 
 footer{
+padding:60px;
 text-align:center;
-padding:40px;
-background:#111827;
-}
-
-footer a{
-color:#38bdf8;
-text-decoration:none;
 }
 
 @media(max-width:768px){
 
 .hero h1{
-font-size:40px;
+font-size:42px;
 }
 
 .hero h2{
 font-size:18px;
+}
+
+.profile{
+width:140px;
+height:140px;
 }
 
 }
@@ -163,20 +228,27 @@ font-size:18px;
 
 <body>
 
-<header>
+<nav>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#experience">Experience</a>
+<a href="#contact">Contact</a>
+</nav>
 
-<div class="hero">
+<section class="hero">
 
-<h1>Akbar Danu</h1>
+<div class="hero-content">
 
-<h2>
-Retail Management Student |
-Graphic Designer |
-Digital Marketing
-</h2>
+<div class="profile">
+<img src="https://via.placeholder.com/400" alt="">
+</div>
+
+<h1>AKBAR DANU</h1>
+
+<h2 id="typing"></h2>
 
 <p>
-Mahasiswa Retail Management dengan pengalaman lebih dari 2 tahun di bidang administrasi, penjualan, pelayanan pelanggan, distribusi, serta desain grafis. Berorientasi pada hasil, disiplin, dan selalu terbuka terhadap peluang baru untuk berkembang secara profesional.
+Retail Management Student, Graphic Designer, dan Digital Marketing Enthusiast dengan pengalaman lebih dari 2 tahun di bidang administrasi, pelayanan, penjualan, distribusi, dan industri kreatif.
 </p>
 
 <a class="btn" href="https://www.linkedin.com/in/akbar-danu-386b52349" target="_blank">
@@ -185,154 +257,170 @@ LinkedIn Profile
 
 </div>
 
-</header>
+</section>
 
-<section>
+<section id="about">
 
 <h2 class="title">About Me</h2>
 
-<div class="about">
+<div class="glass">
 
 <p>
-Saya adalah individu yang adaptif, disiplin, dan berorientasi pada hasil dengan pengalaman profesional lintas bidang selama lebih dari dua tahun.
+Saya adalah individu yang adaptif, disiplin, dan berorientasi pada hasil dengan pengalaman profesional lintas bidang selama lebih dari dua tahun. Berpengalaman sebagai Personal Assistant, Sales Pupuk Nonsubsidi, Cook Helper, Waiter, hingga Operator Produksi di industri skincare.
 </p>
 
 <br>
 
 <p>
-Pengalaman saya mencakup Personal Assistant, Sales Pupuk Nonsubsidi, Cook Helper, Waiter, hingga Operator Produksi pada industri skincare. Berbagai pengalaman tersebut membentuk kemampuan saya dalam komunikasi, koordinasi tim, administrasi, pelayanan pelanggan, dan problem solving.
+Selain aktif di dunia kerja, saya juga mengembangkan kemampuan sebagai Graphic Designer dan saat ini menempuh pendidikan S1 Retail Management untuk memperkuat pemahaman di bidang bisnis dan pemasaran.
 </p>
 
-<br>
+</div>
 
-<p>
-Selain itu saya aktif mengembangkan kemampuan sebagai Freelance Graphic Designer dan saat ini sedang menempuh pendidikan S1 Retail Management untuk memperkuat pemahaman di bidang bisnis dan pemasaran.
-</p>
+<div class="stats">
+
+<div class="glass stat">
+<h3>2+</h3>
+<p>Years Experience</p>
+</div>
+
+<div class="glass stat">
+<h3>5+</h3>
+<p>Industries</p>
+</div>
+
+<div class="glass stat">
+<h3>10+</h3>
+<p>Skills</p>
+</div>
 
 </div>
 
 </section>
 
-<section>
+<section id="skills">
 
 <h2 class="title">Core Skills</h2>
 
 <div class="skills">
 
-<div class="skill-box">
-<h3>Business & Management</h3>
-<ul>
-<li>Sales & Marketing</li>
-<li>Retail Management</li>
-<li>Customer Service</li>
-<li>Negotiation</li>
-<li>Administrative Support</li>
-<li>Problem Solving</li>
-<li>Time Management</li>
-</ul>
+<div class="glass skill">
+<h3>Graphic Design</h3>
+<p>Adobe Photoshop, Illustrator, After Effects, CapCut</p>
 </div>
 
-<div class="skill-box">
-<h3>Graphic Design</h3>
-<ul>
-<li>Adobe Photoshop</li>
-<li>Adobe Illustrator</li>
-<li>Adobe After Effects</li>
-<li>CapCut</li>
-<li>Branding Design</li>
-<li>Content Design</li>
-</ul>
+<div class="glass skill">
+<h3>Sales & Marketing</h3>
+<p>Negotiation, Marketing Strategy, Customer Service</p>
+</div>
+
+<div class="glass skill">
+<h3>Management</h3>
+<p>Leadership, Time Management, Problem Solving</p>
 </div>
 
 </div>
 
 </section>
 
-<section>
+<section id="experience">
 
 <h2 class="title">Experience</h2>
 
 <div class="timeline">
 
-<div class="card">
-<h3>Personal Assistant</h3>
-<span>SPPG | 2025 - Sekarang</span>
-<p>Mengelola administrasi, dokumentasi, koordinasi jadwal dan komunikasi tim operasional.</p>
+<div class="glass item">
+<h3>Personal Assistant - SPPG</h3>
+<p>2025 - Present</p>
 </div>
 
-<div class="card">
-<h3>Distributor & Sales Pupuk Nonsubsidi</h3>
-<span>PT NVIDA PRATAMA KHATULISTIWA</span>
-<p>Melakukan pemasaran produk pertanian, distribusi produk, serta negosiasi dengan pelanggan dan toko pertanian.</p>
+<div class="glass item">
+<h3>Sales Pupuk Nonsubsidi</h3>
+<p>PT NVIDA PRATAMA KHATULISTIWA</p>
 </div>
 
-<div class="card">
-<h3>Waiter</h3>
-<span>PT Emados Kebab Indonesia</span>
-<p>Memberikan pelayanan pelanggan dan membantu operasional outlet.</p>
+<div class="glass item">
+<h3>Waiter - Emados Kebab</h3>
+<p>Customer Service & Outlet Operation</p>
 </div>
 
-<div class="card">
+<div class="glass item">
 <h3>Cook Helper & Waiter</h3>
-<span>Cafe Bell Polda Jatim</span>
-<p>Membantu persiapan makanan serta menjaga kualitas pelayanan pelanggan.</p>
-</div>
-
-<div class="card">
-<h3>Production Worker</h3>
-<span>Pabrik Skincare Gresik</span>
-<p>Berperan dalam proses produksi dan pengemasan dengan standar kualitas tinggi.</p>
+<p>Cafe Bell Polda Jatim</p>
 </div>
 
 </div>
 
 </section>
 
-<section>
+<section id="contact">
 
-<h2 class="title">Creative Portfolio</h2>
+<h2 class="title">Contact</h2>
 
-<div class="portfolio">
+<div class="glass" style="text-align:center">
 
-<div class="project">
-<h3>Adobe Photoshop</h3>
-<p>Editor - PT Faunafella Indonesia</p>
-</div>
+<h3>Let's Connect</h3>
 
-<div class="project">
-<h3>Adobe Illustrator</h3>
-<p>Editor - Wachsen Indonesia</p>
-</div>
+<br>
 
-<div class="project">
-<h3>Adobe After Effects</h3>
-<p>Editor - Always Strike</p>
-</div>
-
-<div class="project">
-<h3>CapCut</h3>
-<p>Editor - English Studio</p>
-</div>
+<a class="btn" href="https://www.linkedin.com/in/akbar-danu-386b52349" target="_blank">
+Visit LinkedIn
+</a>
 
 </div>
 
 </section>
 
 <footer>
-
-<h3>Let's Connect</h3>
-
-<p>
-<a href="https://www.linkedin.com/in/akbar-danu-386b52349">
-LinkedIn
-</a>
-</p>
-
-<p style="margin-top:10px;">
-© 2026 Akbar Danu
-</p>
-
+© 2026 Akbar Danu Portfolio
 </footer>
+
+<script>
+
+const words = [
+"Retail Management",
+"Graphic Designer",
+"Digital Marketing",
+"Sales & Marketing"
+];
+
+let i = 0;
+let j = 0;
+let current = "";
+let isDeleting = false;
+
+function type(){
+
+current = words[i];
+
+if(!isDeleting){
+j++;
+}else{
+j--;
+}
+
+document.getElementById("typing").textContent =
+current.substring(0,j);
+
+if(!isDeleting && j === current.length){
+isDeleting = true;
+setTimeout(type,1200);
+return;
+}
+
+if(isDeleting && j === 0){
+isDeleting = false;
+i++;
+if(i === words.length) i = 0;
+}
+
+setTimeout(type,isDeleting ? 60 : 120);
+
+}
+
+type();
+
+</script>
 
 </body>
 </html>
